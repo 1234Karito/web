@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Auditoría</title>
+    <nav>
+        <div class="menu-icon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/SISTEM/index.php">Inicio</a></li>
+            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/crud_app/index.php">Contactos</a></li>
+            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/CRUD_R/index.php">Reservaciones</a></li>
+            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/MEN%C3%9A/index.php">Restaurante</a></li>
+            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/EMPLEADOS/index.php">Empleados</a></li>
+<li>
+<a href="http://localhost/hotel/auditoria/general.php">Auditoría</a>
+    <ul class="submenu">
+        <li><a href="http://localhost/hotel/auditoria/general.php">Auditoría General</a></li>
+        <li><a href="http://localhost/hotel/auditoria/audit_log.php">Auditoría Contactos</a></li>
+        <li><a href="http://localhost/hotel/auditoria/audit_log2.php">Auditoría Reservas</a></li>
+        <li><a href="http://localhost/hotel/auditoria/audit_log3.php">Auditoría Menú</a></li>
+        <li><a href="http://localhost/hotel/auditoria/audit_empleados.php">Auditoría Empleados</a></li>
+
+    </ul>
+</li>            <li><a href="http://localhost/hotel/restau/REST_CRUD/PROGRAMACION/reportes/index.php">Reportes</a></li>
+        </ul>
+    </nav>
+
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+nav {
+    background-color: #85600A;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #D1C37E;
+    background-color: #6a4c26;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #85600A;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    z-index: 999;
+}
+
+.submenu li {
+    margin-bottom: 10px;
+}
+
+.submenu li:last-child {
+    margin-bottom: 0;
+}
+
+.submenu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    display: block;
+}
+
+.submenu li a:hover {
+    color: #D1C37E;
+}
+
+.nav-links li:hover .submenu {
+    display: block;
+    opacity: 1;
+}
+
+.nav-links li:hover > a {
+    color: #D1C37E;
+}
+
+        .add-button, .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9F8C5A;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .add-button:hover, .action-button:hover {
+            background-color: #000000;
+            color: #FEFEFE;
+            transform: scale(1.1);
+        }
+        .action-container {
+            text-align: center; /* Centrar contenido en la columna de acciones */
+        }
+        .admin-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center; /* Centra el texto horizontalmente */
+            vertical-align: middle; /* Centra el texto verticalmente */
+        }
+        table th {
+            background-color: #9F8C5A;
+            color: white;
+        }
+        table tbody tr:nth-child(even) {
+            background-color: #F9F1E5;
+        }
+        table tbody tr:hover {
+            background-color: #D1C37E;
+        }
+    </style>
+</head>
+<body>
+    <h1>REGISTRO DE AUDITORIA GENERAL</h1>
+      <button class="action-button" onclick="location.href='http://localhost/hotel/auditoria/audit_log.php'">AUDITORIA CLIENTES</button>
+        <button class="action-button" onclick="location.href='http://localhost/hotel/auditoria/audit_log2.php'">AUDITORIA RESERVAS</button>
+        <button class="action-button" onclick="location.href='http://localhost/hotel/auditoria/audit_log3.php'">AUDITORIA RESTAURANTE</button>
+        <button class="action-button" onclick="location.href='http://localhost/hotel/auditoria/audit_empleados.php'">AUDITORIA EMPLEADOS</button>
+    <style>
+        .button-container {
+            text-align: center; /* Centra los botones horizontalmente */
+            margin-top: 50px; /* Espacio superior para separar del contenido superior */
+        }
+
+        .action-button {
+            display: inline-block; /* Hace que los botones se alineen en línea */
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #85600A; /* Color de fondo del botón */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 5px; /* Espacio entre los botones */
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background-color: #6a4c26; /* Color de fondo cuando se pasa el mouse por encima */
+            transform: scale(1.05); /* Efecto de escala al pasar el mouse por encima */
+        }
+
+        .action-button:active {
+            background-color: #4a3420; /* Color de fondo cuando se hace clic */
+            transform: scale(0.98); /* Efecto de escala al hacer clic */
+        }
+    </style>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>BASE DE DATOS</th>
+                <th>TABLA</th>
+                <th>HORA DE ACCIÓN</th>
+                <th>TIPO DE ACCIÓN</th>
+                <th>USUARIO</th>
+                <th>CONSULTA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Conexión a la base de datos de auditoría centralizada
+            $centralDB = new mysqli('localhost', 'root', '', 'auditoria_centra');
+
+            // Verificar conexión
+            if ($centralDB->connect_error) {
+                die("Conexión fallida: " . $centralDB->connect_error);
+            }
+
+            // Consultar la tabla audit_log
+            $sql = "SELECT id, db_name, table_name, action_time, action_type, user_host, query_text FROM audit_log ORDER BY action_time DESC";
+            $result = $centralDB->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Mostrar datos en la tabla
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["id"] . "</td>";
+                    echo "<td>" . $row["db_name"] . "</td>";
+                    echo "<td>" . $row["table_name"] . "</td>";
+                    echo "<td>" . $row["action_time"] . "</td>";
+                    echo "<td>" . $row["action_type"] . "</td>";
+                    echo "<td>" . $row["user_host"] . "</td>";
+                    echo "<td>" . htmlspecialchars($row["query_text"]) . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No hay registros en la tabla de auditoría</td></tr>";
+            }
+
+            $centralDB->close();
+            ?>
+        </tbody>
+    </table>
+</body>
+</html>
